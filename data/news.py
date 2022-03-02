@@ -2,14 +2,14 @@ import datetime
 import sqlalchemy
 from sqlalchemy import orm
 
-from .db_sessions import SqlAlchemyBase
+from .db_session import SqlAlchemyBase
 
 
 class News(SqlAlchemyBase):
     __tablename__ = 'news'
 
     id = sqlalchemy.Column(sqlalchemy.Integer,
-                           primary_key=True, autoincrement=True)
+                           primary_key=True, autoincrement=True, nullable=False)
     title = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     content = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     created_date = sqlalchemy.Column(sqlalchemy.DateTime,
